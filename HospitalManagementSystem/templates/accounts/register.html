@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head%}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+{% block title %} Register Page {% endblock %}
+
+<!-- Bootstrap core CSS -->
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="{% static 'css/accounts/register.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+
+    <form  method="POST" action="{% url 'register' %}">
+
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control" name="first_name" placeholder="First Name"/>
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;</span>
+            <input type="text" class="form-control" name="last_name" placeholder="Last Name"/>
+        </div><br><br>
+        <div class="input-group">
+            <input type="text" class="form-control" name="username" placeholder="UserName"/>
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;</span>
+            <input type="text" class="form-control" name="email" placeholder="Email"/>
+        </div>
+        <br><br>
+        <div class="input-group">
+            <input type="text" class="form-control" name="password1" placeholder="Password"/>
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;</span>
+            <input type="text" class="form-control" name="password2" placeholder="Confirm Password"/>
+        </div><br><br>
+
+        <div class="radio">
+            <label>Register  as</label><br>
+          <label>
+            <input type="radio" name="usertype" value="1"> Doctor
+          </label><br>
+          <label>
+            <input type="radio" name="usertype" value="2"> Patient
+          </label><br>
+        </div>
+        
+        <br><button type="submit" class="btn btn-primary">Register</button>
+      </form>
+
+      <div>
+        {% for message in messages%}
+        <h3>{{message}}</h3>
+        {% endfor%}
+    </div>
+
+</div>
+
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+{% endblock %}

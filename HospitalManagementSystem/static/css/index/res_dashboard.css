@@ -1,0 +1,11 @@
+.box{
+    margin: 10px;
+    margin-top: 40px;
+    margin-left: 50px;
+    padding: 20px 100px;
+    height: 200px;
+    background-color: aqua;
+}
+.test{
+    overflow: hidden;
+}

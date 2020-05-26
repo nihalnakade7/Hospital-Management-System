@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head%}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+{% block title %} Home {% endblock %}
+
+<!-- Bootstrap core CSS -->
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="{% static 'css/index/blog-home.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block body %}
+
+
+ <div class="container">
+
+    <form method="GET" action="{% url 'res_dashboard' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Cancel</button>
+    </form>
+
+    <br><br>
+    <form method="GET" action="{% url 'del_user' %}">
+        {% csrf_token %}
+        <input type="hidden" value="{{id}}" name="uid">
+        <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+
+ </div> 
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+{% endblock %}
